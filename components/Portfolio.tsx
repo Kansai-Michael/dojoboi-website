@@ -1,11 +1,11 @@
 const deliverables = [
-  "Flagship website — Cranbourne location, full program suite",
-  "Little Ninjas, Mighty Samurais, Junior Karate, Adult Karate, Kobudo",
-  "Black & crimson brand system distinct from other Shukokai sites",
-  "Mobile-first responsive build on Next.js + Vercel",
-  "On-page SEO, GA4, schema markup for LocalBusiness",
-  "Lead capture forms with booking calendar integration",
-  "Template ready to replicate across 5 remaining locations",
+  "Full website — 5 program pages, timetable pages, about & contact",
+  "Cubs, Little Lions, Juniors, Teens & Adults — complete program suite",
+  "Royal blue & yellow brand system, mobile-first responsive build",
+  "On-page SEO, GA4, Meta Pixel, LocalBusiness schema markup",
+  "Lead capture modal with Kihon CRM booking calendar integration",
+  "Booking pre-fill flow — form data carries through to calendar",
+  "Live at kansaikarategoldcoast.com.au — ~188 students",
 ];
 
 export default function Portfolio() {
@@ -68,7 +68,7 @@ export default function Portfolio() {
                 marginBottom: 12,
               }}
             >
-              Client work · 2026
+              Founder&apos;s dojo · 2026
             </div>
             <h3
               style={{
@@ -81,10 +81,10 @@ export default function Portfolio() {
                 marginBottom: 16,
               }}
             >
-              Shukokai Karate Dojos
+              Kansai Karate
               <br />
               <span style={{ color: "var(--vermillion)", fontWeight: 400, fontStyle: "italic" }}>
-                Cranbourne
+                Gold Coast
               </span>
             </h3>
             <p
@@ -97,8 +97,8 @@ export default function Portfolio() {
                 marginBottom: 28,
               }}
             >
-              A flagship website for one of Melbourne&apos;s leading traditional karate
-              organisations — built to be replicated across six locations.
+              The founder&apos;s own dojo — a fully custom website built on the same
+              stack we use for every client. Live, fast, and pulling real leads.
             </p>
 
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 36px" }}>
@@ -134,7 +134,7 @@ export default function Portfolio() {
             </ul>
 
             <a
-              href="https://skdcranborne-website.vercel.app"
+              href="https://kansaikarategoldcoast.com.au"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline-dark"
@@ -203,14 +203,14 @@ export default function Portfolio() {
                     letterSpacing: "0.05em",
                   }}
                 >
-                  skdcranborne-website.vercel.app
+                  kansaikarategoldcoast.com.au
                 </div>
               </div>
 
               {/* Site preview as styled mockup */}
               <div
                 style={{
-                  background: "#111111",
+                  background: "#5B7DB1",
                   aspectRatio: "16/10",
                   padding: "20px 24px",
                   display: "flex",
@@ -235,17 +235,18 @@ export default function Portfolio() {
                       letterSpacing: "-0.02em",
                     }}
                   >
-                    Shukokai
+                    Kansai Karate
                   </div>
                   <div
                     style={{
-                      background: "#A11515",
-                      color: "white",
+                      background: "#FFB800",
+                      color: "#0A0A0A",
                       fontSize: 8,
                       fontFamily: "var(--font-jetbrains-mono), monospace",
                       padding: "4px 10px",
                       letterSpacing: "0.15em",
                       textTransform: "uppercase",
+                      fontWeight: 600,
                     }}
                   >
                     Book
@@ -259,12 +260,12 @@ export default function Portfolio() {
                       fontFamily: "var(--font-jetbrains-mono), monospace",
                       fontSize: 7,
                       letterSpacing: "0.25em",
-                      color: "#A11515",
+                      color: "#FFB800",
                       textTransform: "uppercase",
                       marginBottom: 8,
                     }}
                   >
-                    Cranbourne · Traditional Karate
+                    Upper Coomera · Gold Coast
                   </div>
                   <div
                     style={{
@@ -280,7 +281,7 @@ export default function Portfolio() {
                     Traditional karate for{" "}
                     <em
                       style={{
-                        color: "#A11515",
+                        color: "#FFB800",
                         fontStyle: "italic",
                         fontWeight: 400,
                       }}
@@ -293,12 +294,12 @@ export default function Portfolio() {
                       fontFamily: "var(--font-fraunces), serif",
                       fontStyle: "italic",
                       fontSize: 10,
-                      color: "rgba(255,255,255,0.45)",
+                      color: "rgba(255,255,255,0.6)",
                       lineHeight: 1.5,
                       maxWidth: 260,
                     }}
                   >
-                    From Little Ninjas to adults — Shukokai Karate at Cranbourne West.
+                    Cubs through to Adults — Shitoryu Shukokai at Upper Coomera.
                   </div>
                 </div>
               </div>
