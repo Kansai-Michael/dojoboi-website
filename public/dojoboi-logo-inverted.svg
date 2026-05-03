@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 130" fill="none">
+  <title>Dojoboi Design Studios — Inverted (use on dark backgrounds)</title>
+  <g transform="translate(15 15)">
+    <path d="M 50 10 A 40 40 0 1 1 18 75" stroke="#FAF7EF" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="18" cy="75" r="3" fill="#C8102E"/>
+  </g>
+  <g transform="translate(140 0)">
+    <text x="0" y="72" font-family="Fraunces, 'Times New Roman', serif" font-weight="800" font-size="56" letter-spacing="-1.4" fill="#FAF7EF">Dojoboi</text>
+    <text x="2" y="98" font-family="'JetBrains Mono', 'Courier New', monospace" font-weight="500" font-size="12" letter-spacing="3.8" fill="#C8102E">DESIGN STUDIOS</text>
+  </g>
+</svg>
