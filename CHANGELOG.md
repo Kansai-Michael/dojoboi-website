@@ -1,5 +1,14 @@
 # Changelog — DojoBoi Design Studios Website
 
+## v1.1 — 2026-05-05
+
+### Changed
+- Contact form now uses `mailto:` link instead of backend API — form fields pre-fill the visitor's email client addressed to `studio@dojoboi.au`
+- Removed Resend dependency from contact flow entirely
+- `studio@dojoboi.au` shown as clickable mailto link in form left column and as fallback below submit button
+
+---
+
 ## v1.0 — 2026-05-05
 
 Initial build and launch.
