@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 
-type FormState = "idle" | "submitting" | "success" | "error";
-
 export default function ContactForm() {
-  const [state, setState] = useState<FormState>("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,23 +17,21 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setState("submitting");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (res.ok) {
-        setState("success");
-      } else {
-        setState("error");
-      }
-    } catch {
-      setState("error");
-    }
+    const { name, email, phone, dojo, message } = formData;
+    const subject = `New enquiry from ${name} — ${dojo}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : null,
+      `Dojo: ${dojo}`,
+      ``,
+      message,
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
+    window.location.href = `mailto:studio@dojoboi.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const inputStyle = {
@@ -120,53 +115,26 @@ export default function ContactForm() {
               Tell us about your school and what you need. We'll get back to you within one
               business day.
             </p>
-            <div
+            <a
+              href="mailto:studio@dojoboi.au"
+              className="link-footer"
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: 11,
                 letterSpacing: "0.15em",
                 color: "rgba(250,247,239,0.4)",
+                textDecoration: "none",
+                display: "inline-block",
+                transition: "color 0.15s",
               }}
             >
               studio@dojoboi.au
-            </div>
+            </a>
           </div>
 
           {/* Right — form */}
           <div>
-            {state === "success" ? (
-              <div
-                style={{
-                  border: "1px solid rgba(250,247,239,0.15)",
-                  padding: "48px 40px",
-                  textAlign: "center",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-fraunces), serif",
-                    fontWeight: 800,
-                    fontSize: 28,
-                    color: "var(--washi)",
-                    marginBottom: 12,
-                  }}
-                >
-                  Thanks — we'll be in touch.
-                </div>
-                <p
-                  style={{
-                    fontFamily: "var(--font-fraunces), serif",
-                    fontStyle: "italic",
-                    fontSize: 16,
-                    color: "rgba(250,247,239,0.55)",
-                    margin: 0,
-                  }}
-                >
-                  Usually within one business day.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                 <div
                   style={{
                     display: "grid",
@@ -253,23 +221,8 @@ export default function ContactForm() {
                   />
                 </div>
 
-                {state === "error" && (
-                  <p
-                    style={{
-                      fontFamily: "var(--font-jetbrains-mono), monospace",
-                      fontSize: 11,
-                      letterSpacing: "0.15em",
-                      color: "var(--vermillion)",
-                      margin: 0,
-                    }}
-                  >
-                    Something went wrong — please email us directly at studio@dojoboi.au
-                  </p>
-                )}
-
                 <button
                   type="submit"
-                  disabled={state === "submitting"}
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontWeight: 500,
@@ -277,22 +230,36 @@ export default function ContactForm() {
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
                     color: "var(--ink)",
-                    background: state === "submitting" ? "rgba(200,16,46,0.6)" : "var(--vermillion)",
+                    background: "var(--vermillion)",
                     border: "none",
                     padding: "18px 36px",
-                    cursor: state === "submitting" ? "not-allowed" : "pointer",
+                    cursor: "pointer",
                     width: "100%",
                     transition: "opacity 0.15s",
                   }}
-                  onMouseEnter={(e) => {
-                    if (state !== "submitting") e.currentTarget.style.opacity = "0.85";
-                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
                   onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
                 >
-                  {state === "submitting" ? "Sending…" : "Send message"}
+                  Send message
                 </button>
+
+                <div style={{
+                  fontFamily: "var(--font-jetbrains-mono), monospace",
+                  fontSize: 10,
+                  letterSpacing: "0.15em",
+                  color: "rgba(250,247,239,0.25)",
+                  textAlign: "center",
+                }}>
+                  or email us directly at{" "}
+                  <a
+                    href="mailto:studio@dojoboi.au"
+                    className="link-footer"
+                    style={{ color: "rgba(250,247,239,0.4)", textDecoration: "none", transition: "color 0.15s" }}
+                  >
+                    studio@dojoboi.au
+                  </a>
+                </div>
               </form>
-            )}
           </div>
         </div>
       </div>
